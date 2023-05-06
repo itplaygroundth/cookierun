@@ -3,8 +3,20 @@ $bg_info="bg-info";
 $bg_secondary="bg-secondary";
 $bg_primary="bg-primary";
 
-$cookies = array(['title'=>'cookie-A','is_enabled'=>0],['title'=>'cookie-B','is_enabled'=>0],['title'=>'cookie-C','is_enabled'=>0]);
- 
+// $cookies = array(
+//     ['title'=>'cookie-A','is_enabled'=>0,'domain'=>'cookie-dev.com','expires'=>'1year']
+//     ,['title'=>'cookie-B','is_enabled'=>0,'domain'=>'cookie-dev.com','expires'=>'1year'],
+//     ['title'=>'cookie-C','is_enabled'=>0,'domain'=>'cookie-dev.com','expires'=>'1year']);
+$consents =  array( 
+['title'=>'necessary','is_enabled'=>0,'cookies'=>array(['title'=>'cookie-A','is_enabled'=>0,'domain'=>'cookie-dev.com','expires'=>'1year']
+,['title'=>'cookie-B','is_enabled'=>0,'domain'=>'cookie-dev.com','expires'=>'1year'],
+['title'=>'cookie-C','is_enabled'=>0,'domain'=>'cookie-dev.com','expires'=>'1year'])],
+['title'=>'function','is_enabled'=>0,'cookies'=>array(['title'=>'cookie-A','is_enabled'=>0,'domain'=>'cookie-dev.com','expires'=>'1year']
+,['title'=>'cookie-B','is_enabled'=>0,'domain'=>'cookie-dev.com','expires'=>'1year'],
+['title'=>'cookie-C','is_enabled'=>0,'domain'=>'cookie-dev.com','expires'=>'1year'])],
+['title'=>'marketing','is_enabled'=>0,'cookies'=>array(['title'=>'cookie-A','is_enabled'=>0,'domain'=>'cookie-dev.com','expires'=>'1year']
+,['title'=>'cookie-B','is_enabled'=>0,'domain'=>'cookie-dev.com','expires'=>'1year'],
+['title'=>'cookie-C','is_enabled'=>0,'domain'=>'cookie-dev.com','expires'=>'1year'])]);
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -62,9 +74,9 @@ $cookies = array(['title'=>'cookie-A','is_enabled'=>0],['title'=>'cookie-B','is_
                 <div class="modal-body">
                     <p>Please select which cookies you consent to:</p>
                     
-                        <?php foreach($cookies as $index=>$cookie):?>
+                        <?php foreach($consents as $index=>$cookie):?>
                             <?php $cookie=(object)$cookie;?>
-                        <div class="d-flex mb-3 <?=$bg_secondary?>">
+                        <div class="d-flex  <?=$bg_secondary?>">
                             <div class="p-2 mr-auto <?=$bg_info?>"><label class="form-check-label" for="<?=$cookie->title?>"><?=$cookie->title?></label></div>
 
                             <div class="p-2 <?=$bg_primary?>">
@@ -73,8 +85,11 @@ $cookies = array(['title'=>'cookie-A','is_enabled'=>0],['title'=>'cookie-B','is_
                                 <span class="slider round"></span>
                             </label> 
                             </div>
+                          
                         </div>
-                    
+                        <div class="p-2">
+                        <a href="#" class="link">detail</a>
+                        </div>
                         <?php endforeach ?>
              
 

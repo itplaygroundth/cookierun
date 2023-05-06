@@ -12,8 +12,8 @@ services:
       - "8.8.4.4"
     ports:
       - "8000:80"
-  
- https:
+
+  https:
     image: caddy
     container_name: https
     ports:
@@ -21,7 +21,6 @@ services:
       - 443:443
     environment:
       - URL_HOME=https://cookie-dev.com
- 
     volumes:
       - ./Caddyfile:/etc/caddy/Caddyfile
 

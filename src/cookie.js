@@ -116,21 +116,21 @@ function getCookie(name) {
 // Add event listener for the "Accept" button
 document.getElementById("cookie-accept").addEventListener("click", function() {
     // Get the selected cookies
-    var cookieA = document.getElementById("cookie-A").checked;
-    var cookieB = document.getElementById("cookie-B").checked;
-    var cookieC = document.getElementById("cookie-C").checked;
+    var cookieA = document.getElementById("necessary").checked;
+    var cookieB = document.getElementById("function").checked;
+    var cookieC = document.getElementById("marketing").checked;
    // var cookieD = document.getElementById("cookie-D").checked;
     var cookieValues = [];
   
     // Add the values of the selected cookies to an array
     if (cookieA) {
-      cookieValues.push("A");
+      cookieValues.push("necessary");
     }
     if (cookieB) {
-      cookieValues.push("B");
+      cookieValues.push("function");
     }
     if (cookieC) {
-      cookieValues.push("C");
+      cookieValues.push("marketing");
     }
     // if (cookieD) {
     //   cookieValues.push("D");
@@ -144,21 +144,21 @@ document.getElementById("cookie-accept").addEventListener("click", function() {
   // Add event listener for the "Accept" button in the cookie policy dialog
   document.getElementById("cookie-policy-accept").addEventListener("click", function() {
     // Get the selected cookies
-    var cookieA = document.getElementById("cookie-A").checked;
-    var cookieB = document.getElementById("cookie-B").checked;
-    var cookieC = document.getElementById("cookie-C").checked;
+    var cookieA = document.getElementById("necessary").checked;
+    var cookieB = document.getElementById("function").checked;
+    var cookieC = document.getElementById("marketing").checked;
     //var cookieD = document.getElementById("cookie-D").checked;
     var cookieValues = [];
-    console.log(cookieA);
+     
     // Add the values of the selected cookies to an array
     if (cookieA) {
-      cookieValues.push("A");
+      cookieValues.push("necessary");
     }
     if (cookieB) {
-      cookieValues.push("B");
+      cookieValues.push("function");
     }
     if (cookieC) {
-      cookieValues.push("C");
+      cookieValues.push("marketing");
     }
     // if (cookieD) {
     //   cookieValues.push("D");
