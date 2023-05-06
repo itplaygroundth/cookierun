@@ -1,0 +1,28 @@
+version: '3.7'
+services:
+  php-home:
+    build:
+        context: ./
+        dockerfile: ./src/Dockerfile
+    restart: always
+    volumes:
+      - ./src/:/app
+    dns:
+      - "8.8.8.8"
+      - "8.8.4.4"
+    ports:
+      - "8000:80"
+  
+ https:
+    image: caddy
+    container_name: https
+    ports:
+      - 80:80
+      - 443:443
+    environment:
+      - URL_HOME=https://cookie-dev.com
+ 
+    volumes:
+      - ./Caddyfile:/etc/caddy/Caddyfile
+
+  

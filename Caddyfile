@@ -1,0 +1,4 @@
+{$URL_HOME} {
+  reverse_proxy php-home:8000
+  tls internal
+}
