@@ -1,6 +1,59 @@
 
 // A $( document ).ready() block.
 $( document ).ready(function() {
+
+    $("#cookie-policy-dialog").on('shown.bs.modal', function (e) {
+       
+        $('[id^=detail_]').on('click',(event)=>{
+            var id = $(event.target).data('id');
+           // $('#cookie_'+id).removeClass('d-flex'); 
+           $('#cookie_'+id).removeClass('d-none');
+           $('[id^=consent_]').addClass('d-none');
+           $('#cookie_back').removeClass('d-none');
+           $('#cookie-policy-dialog-title').addClass('d-none');
+           $('.modal-footer').addClass('d-none');
+           // console.log(id)
+        //   console.log(event);
+        //     let data = $(this).data();
+        //     console.log(data);
+          //  $('[id^=cookie_0]').hide();
+        //console.log(event);
+        });
+        $('#cookie_back').on('click',(event)=>{
+           $('[id^=cookie_]').addClass('d-none');
+           $('[id^=consent_]').removeClass('d-none');
+           $('#cookie-policy-dialog-title').removeClass('d-none');
+           $('.modal-footer').removeClass('d-none');
+        })
+        // Your actual function here
+         // Add event listener for the "Accept" button in the cookie policy dialog
+   $("#cookie-policy-accept").on("click", function() {
+    // Get the selected cookies
+    var cookieA = $("#necessary").checked;
+    var cookieB = $("#function").checked;
+    var cookieC = $("#marketing").checked;
+    //var cookieD = document.getElementById("cookie-D").checked;
+    var cookieValues = [];
+     
+    // Add the values of the selected cookies to an array
+    if (cookieA) {
+      cookieValues.push("necessary");
+    }
+    if (cookieB) {
+      cookieValues.push("function");
+    }
+    if (cookieC) {
+      cookieValues.push("marketing");
+    }
+    // if (cookieD) {
+    //   cookieValues.push("D");
+    // }
+  
+    // Set the cookie consent to the selected values and hide the cookie policy dialog
+    setCookie("cookie_consent", JSON.stringify(cookieValues), 365);
+    $('#cookie-policy-dialog').modal('hide');
+  });
+    })
     // const cookieConsentBtn = document.getElementById('cookie-consent-btn');
     // const cookieBanner = document.getElementById('cookie-banner');
     // const cookieAcceptBtn = document.getElementById('cookie-accept');
@@ -141,34 +194,11 @@ document.getElementById("cookie-accept").addEventListener("click", function() {
     document.getElementById("cookie-banner").style.display = "none";
   });
   
-  // Add event listener for the "Accept" button in the cookie policy dialog
-  document.getElementById("cookie-policy-accept").addEventListener("click", function() {
-    // Get the selected cookies
-    var cookieA = document.getElementById("necessary").checked;
-    var cookieB = document.getElementById("function").checked;
-    var cookieC = document.getElementById("marketing").checked;
-    //var cookieD = document.getElementById("cookie-D").checked;
-    var cookieValues = [];
-     
-    // Add the values of the selected cookies to an array
-    if (cookieA) {
-      cookieValues.push("necessary");
-    }
-    if (cookieB) {
-      cookieValues.push("function");
-    }
-    if (cookieC) {
-      cookieValues.push("marketing");
-    }
-    // if (cookieD) {
-    //   cookieValues.push("D");
-    // }
+ 
   
-    // Set the cookie consent to the selected values and hide the cookie policy dialog
-    setCookie("cookie_consent", JSON.stringify(cookieValues), 365);
-    $('#cookie-policy-dialog').modal('hide');
-  });
-  
+
+
 
 
 });
+
