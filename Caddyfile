@@ -2,3 +2,7 @@
   reverse_proxy php-home:80
   tls internal
 }
+{$URL_BACK} {
+  reverse_proxy banner-home:80
+  tls internal
+}

@@ -1,5 +1,18 @@
 version: '3.7'
 services:
+  banner-home:
+    build: 
+      context:  ./
+      dockerfile: ./banner/Dockerfile
+    restart: always
+    volumes:
+      - ./banner/:/app
+    dns:
+        - "8.8.8.8"
+        - "8.8.4.4"
+    ports:
+        - "8010:80"
+
   php-home:
     build:
         context: ./
@@ -21,6 +34,7 @@ services:
       - 443:443
     environment:
       - URL_HOME=https://cookie-dev.com
+      - URL_BACK=https://banner-dev.com
     volumes:
       - ./Caddyfile:/etc/caddy/Caddyfile
 
